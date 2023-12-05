@@ -1,4 +1,4 @@
-# django-crud
+# Django-EmployeeCRUD
 
 This is the web application to manage Department and Employee details.
 
@@ -10,7 +10,7 @@ Make sure *pip* setuptool is installed with python package.
 Create virtual environment using following commands.
 
 ```
-$ cd django-crud
+$ cd Django-EmployeeCRUD
 $ pip install virtualenv
 $ virtualenv env
 ```
