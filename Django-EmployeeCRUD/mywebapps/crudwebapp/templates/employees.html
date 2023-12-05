@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+</head>
+<body>
+<center><h1>Employees</h1></center>
+<hr />
+<table>
+    <thead>
+    <tr>
+        <th>Employee ID</th>
+        <th>Employee Name</th>
+        <th>Department</th>
+        <th>Date of Join</th>
+        <th>Gender</th>
+        <th>Address</th>
+        <th>Salary</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if employees %}
+        {% for employee in employees %}
+            <tr>
+                <td>{{ employee.employee_id }}</td>
+                <td>{{ employee.name }}</td>
+                <td>{{ employee.department.name }}</td>
+                <td>{{ employee.date_of_join|date:"Y-m-d" }}</td>
+                <td>{{ employee.gender|capfirst }}</td>
+                <td>{{ employee.address }}</td>
+                <td>{{ employee.salary }}</td>
+                <td>
+                    <a href="/edit_employee/{{ employee.employee_id }}" class="link_button_action"><span>Edit</span></a>
+                    <a href="/delete_employee/{{ employee.employee_id }}" class="link_button_action">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    {% else %}
+        <tr><td colspan="8"><center>No records found!</center></td></tr>
+    {% endif %}
+    </tbody>
+</table>
+<br>
+<br>
+<center><a href="/add_employee" class="link_button">Add New Record</a></center>
+</body>
+</html>
